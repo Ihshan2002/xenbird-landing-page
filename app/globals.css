@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-xenbird-primary: #182257;
+  --color-xenbird-secondary: #28609d;
+  --color-xenbird-accent: #F3F4F6;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+--animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+
+
+@import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
