@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,16 +12,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  // 1. Base URL: Change this to your actual domain when you deploy (e.g., https://xenbird.com)
-  metadataBase: new URL("https://xenbird-landing-page.vercel.app/"), 
+// 1. Viewport Settings (Good for mobile responsiveness)
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#182257", // Your brand color from the screenshots
+};
 
-  title: "Xenbird - Custom eCommerce", 
+export const metadata: Metadata = {
+  // 2. Base URL: CHANGE THIS to your real domain when you deploy!
+  metadataBase: new URL("https://xenbird-landing-page.vercel.app/"),
+
+  // 3. Smart Title Template
+  title: {
+    default: "Xenbird", // Shows on Home Page
+    template: "%s | Xenbird", // Shows on other pages like "About | Xenbird"
+  },
   description: "Launch your custom-coded eCommerce site in days.",
 
-  // 2. Open Graph (Social Media Preview)
+  // 4. Open Graph (For WhatsApp, Facebook, LinkedIn)
   openGraph: {
-    title: "Xenbird - Custom eCommerce",
+    title: "Xenbird",
     description: "Launch your custom-coded eCommerce site in days.",
     url: "https://xenbird-landing-page.vercel.app/",
     siteName: "Xenbird",
@@ -33,7 +45,28 @@ export const metadata: Metadata = {
         alt: "Xenbird Preview",
       },
     ],
+    locale: "en_US",
     type: "website",
+  },
+
+  // 5. Twitter Card (Crucial for Twitter/X)
+  twitter: {
+    card: "summary_large_image",
+    title: "Xenbird",
+    description: "Launch your custom-coded eCommerce site in days.",
+    images: ["/og-image.jpg"],
+    creator: "@xenbird", 
+  },
+
+  // 6. Icons (Favicon in browser tab)
+  icons: {
+    icon: "/favicon.ico",
+  },
+  
+  // 7. Robots (SEO)
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
