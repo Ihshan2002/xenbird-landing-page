@@ -1,16 +1,40 @@
+"use client";
+
+import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  const isMobile = false; 
+
   return (
-    <section className="relative bg-xenbird-primary pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    // 1. Reduced pt-32 to pt-24 (less space at the very top)
+    <section className="relative bg-xenbird-primary pt-24 pb-20 lg:pt-36 lg:pb-32 overflow-hidden">
+      
       {/* Background Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px]" />
          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-xenbird-secondary/20 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 text-center">
+      <div className="container mx-auto px-4 relative z-10 text-center flex flex-col items-center"> 
         
+             <motion.div
+              animate={!isMobile ? { rotate: [0, 5, -5, 0] } : {}}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              // 2. Reduced mb-8 to mb-4 (brings the headline closer to the logo)
+              className="mb-4" 
+            >
+              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center">
+                <Image
+                  src="/vector-logo.png"
+                  alt="Logo"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
           Launch your custom-coded <br className="hidden md:block" />
