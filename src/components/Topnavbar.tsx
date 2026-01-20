@@ -5,9 +5,7 @@ import Image from 'next/image'; // 1. Import Image
 import { motion } from 'framer-motion'; // 2. Import motion
 
 const Topnavbar = () => {
-  // 3. Define isMobile or remove the logic. 
-  // For this example, I'll assume false to keep it simple, 
-  // or you can use a hook like useMediaQuery if you have one.
+
   const isMobile = false; 
 
   return (
