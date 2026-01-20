@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
   // 6. Icons (Favicon in browser tab)
   icons: {
-    icon: "/favicon.ico",
+    icon: "og-image.jpg",
   },
   
   // 7. Robots (SEO)
